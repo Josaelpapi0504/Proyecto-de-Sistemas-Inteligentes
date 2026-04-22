@@ -1,0 +1,13 @@
+graph TD
+    A[Inicio: Cargar KB] --> B[Estado IDLE: Esperar Aplauso/Botón]
+    B --> C{¿Activación?}
+    C -- Sí --> D[Estado SEQUENCE: Generar nuevo paso]
+    D --> E[Mostrar Secuencia: LEDs + Pantalla + Audio Serial]
+    E --> F[Estado USER_INPUT: Esperar entrada]
+    F --> G{¿Coincide?}
+    G -- Sí --> H{¿Secuencia completa?}
+    H -- No --> F
+    H -- Sí --> I[Ronda Superada: +Velocidad]
+    I --> D
+    G -- No --> J[Estado ERROR: Vader Sound + Reset]
+    J --> B

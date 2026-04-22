@@ -1,0 +1,24 @@
+digraph G {
+rankdir=LR;
+graph [fontname="Helvetica", fontsize=12, ranksep=1.0, nodesep=0.6, splines=ortho];
+node [fontname="Helvetica", fontsize=10];
+edge [fontname="Helvetica", fontsize=9];
+usuario [shape=plaintext, label="Jugador"];
+docente [shape=plaintext, label="Docente / Evaluador"];
+subgraph cluster_0 {
+label="Sistema Simon Dice Inteligente"; style=rounded; color="#1f4e79";
+uc1 [shape=ellipse, label="Activar partida"];
+uc2 [shape=ellipse, label="Reproducir secuencia"];
+uc3 [shape=ellipse, label="Capturar entrada"];
+uc4 [shape=ellipse, label="Validar respuesta"];
+uc5 [shape=ellipse, label="Mostrar puntaje y récord"];
+uc6 [shape=ellipse, label="Reiniciar partida"];
+uc7 [shape=ellipse, label="Calibrar umbral de ruido"];
+uc8 [shape=ellipse, label="Verificar hardware y evidencia"];
+}
+usuario -> uc1; usuario -> uc3; usuario -> uc5; usuario -> uc6;
+docente -> uc7; docente -> uc8;
+uc1 -> uc2 [label="<<include>>"];
+uc3 -> uc4 [label="<<include>>"];
+uc4 -> uc5 [label="<<include>>"];
+}

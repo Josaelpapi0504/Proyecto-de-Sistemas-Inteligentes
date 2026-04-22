@@ -1,0 +1,15 @@
+digraph G {
+rankdir=LR;
+graph [fontname="Helvetica", fontsize=12, ranksep=0.8, nodesep=0.5];
+node [shape=record, fontname="Helvetica", fontsize=10, style=filled, fillcolor="#f8f9f9", color="#2e4053"];
+edge [fontname="Helvetica", fontsize=9, arrowhead=open];
+A [label="{KBManager|+ get()\l+ update_state()\l+ save()\l}"];
+B [label="{SimonStateMachine|+ change_state()\l+ update()\l}"];
+C [label="{InferenceEngine|+ validar_entrada()\l+ generar_nuevo_paso()\l}"];
+D [label="{IdleState|+ on_enter()\l+ update()\l}"];
+E [label="{SequenceState|+ on_enter()\l+ ejecutar_secuencia()\l}"];
+F [label="{UserInputState|+ on_enter()\l+ update()\l+ procesar_logica()\l}"];
+G [label="{LEDController|+ encender()\l+ todos_on()\l+ todos_off()\l}"];
+H [label="{DisplayController|+ mostrar_resultado()\l+ mostrar_color()\l}"];
+B->A [label="usa"]; B->D [label="compone"]; B->E [label="compone"]; B->F [label="compone"]; F->C [label="usa"]; C->A [label="consulta"]; B->G [label="controla"]; B->H [label="controla"];
+}

@@ -1,0 +1,7 @@
+digraph G {
+rankdir=LR;
+graph [fontname="Helvetica", fontsize=12, ranksep=0.7, nodesep=0.6];
+node [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled", fillcolor="#ebf5fb", color="#1f618d"];
+start [shape=point]; idle [label="IDLE"]; seq [label="SEQUENCE"]; input [label="USER_INPUT"]; err [label="ERROR lógico / usuario"]; ok [shape=diamond, label="¿Coincide?"]; full [shape=diamond, label="¿Secuencia completa?"];
+start->idle; idle->seq [label="activación"]; seq->input [label="secuencia mostrada"]; input->ok; ok->err [label="No"]; ok->full [label="Sí"]; full->input [label="No"]; full->seq [label="Sí"]; err->idle [label="reset"];
+}
