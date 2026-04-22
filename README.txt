@@ -1,0 +1,1 @@
+Proyecto GitHub ligero para carga web. Incluye PDFs, diagramas, código fuente, evidencias optimizadas y logo UNITEC. Si quieres el paquete completo, usa el ZIP grande fuera de GitHub.
